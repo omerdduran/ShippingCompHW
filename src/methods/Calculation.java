@@ -94,14 +94,4 @@ public class Calculation {
 
         return totalCost;
     }
-
-    // Prints detailed order information including items and shipping details.
-    public void printOrder(List<Item> items, String containerType) {
-        System.out.println("Order Details:");
-        for (Item item : items) {
-            item.printItemInfo(); // Display each item's information.
-        }
-        System.out.println("Shipping Method: " + containerType);
-        System.out.println("Total Shipping Cost: " + shippingPrice(items, containerType));
-    }
 }
