@@ -7,11 +7,16 @@ import java.util.List;
 import java.util.Scanner;
 
 
-//		Ömer Duran - 45096997
-//	I use JRE 17.0.11 
+//Ömer Duran - 45096997
+//I use JRE 17.0.11 
+//Git repo: https://codeberg.org/omerdduran/ShippingCompHW
 //
+//Description: This Java program calculates the optimal shipping method and cost for a given list of items. 
+//         It includes functions to compute the total volume and weight of the items, determine the best 
+//         shipping option considering both small and big containers, and print order details including 
+//         the shipping method and total cost.
 //
-//
+//Date: June 11, 2024
 
 public class Main {
 
