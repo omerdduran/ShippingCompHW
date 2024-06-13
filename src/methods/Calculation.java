@@ -50,16 +50,15 @@ public class Calculation {
         int combinedSmallContainers = (int) Math.ceil(remainingVolume / smallContainer.calculateVolume());
 
         // Calculate combined cost based on weight thresholds.
-        if (totalWeight > 500) {
-            combinedCost = (1800 * combinedBigContainers) + (1200 * combinedSmallContainers);
-        } else {
-            combinedCost = (1800 * combinedBigContainers) + (1000 * combinedSmallContainers);
-        }
+        combinedCost = (1800 * combinedBigContainers) + ((totalWeight > 500 ? 1200 : 1000) * combinedSmallContainers);
 
         // Output the number of containers and their costs.
         System.out.println(smallContainersNeeded + " Small Containers: " + smallContainerCost + " Euros");
         System.out.println(bigContainersNeeded + " Big Containers: " + bigContainerCost + " Euros");
-        System.out.println(combinedBigContainers + " Big Containers and " + combinedSmallContainers + " Small Containers: " + combinedCost + " Euros");
+        
+        if (combinedBigContainers > 0 && combinedSmallContainers > 0) {
+            System.out.println(combinedBigContainers + " Big Containers and " + combinedSmallContainers + " Small Containers: " + combinedCost + " Euros");
+        }
 
         // Determine and print the cheapest option.
         double minCost = Math.min(smallContainerCost, Math.min(bigContainerCost, combinedCost));
@@ -68,7 +67,10 @@ public class Calculation {
         } else if (minCost == bigContainerCost) {
             System.out.println("Best Option: " + bigContainersNeeded + " Big Containers");
         } else {
-            System.out.println("Best Option: " + combinedBigContainers + " Big Containers and " + combinedSmallContainers + " Small Containers");
+        	// If one of the two container types is 0, there is no need to print
+        	if (combinedBigContainers > 0 && combinedSmallContainers > 0) {
+        	    System.out.println("Best Option: " + combinedBigContainers + " Big Containers and " + combinedSmallContainers + " Small Containers");
+        	}
         }
     }
 
