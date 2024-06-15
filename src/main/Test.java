@@ -36,14 +36,7 @@ public class Test {
                 }
                 break;
             case 4:
-                // Test 4: Fill a large container completely and add one more Lcd
-            	for (int i = 0; i < 503; i++) {
-                    items.add(new Laptop());
-                }
-            	items.add(new LcdScreen());
-                break;
-            case 5:
-                // Test 5: Mix of different items (example scenario)
+                // Test 4s: Mix of different items (example scenario)
             	for (int i = 0; i < 100; i++) {
                     items.add(new Laptop());
                     items.add(new LcdScreen());
@@ -70,8 +63,7 @@ public class Test {
             System.out.println("1: Fill a large container completely");
             System.out.println("2: Fill a small container with a volume limit and weight <= 500 kg");
             System.out.println("3: Fill a small container with a volume limit and weight > 500 kg");
-            System.out.println("4: Fill a large container completely and add one more Lcd");
-            System.out.println("5: Mix of different items (example scenario)");
+            System.out.println("4: Mix of different items (example scenario)");
             System.out.println("Press 0 to exit.");
 
             int testNumber = scanner.nextInt();
