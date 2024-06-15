@@ -14,6 +14,7 @@ public class Calculation {
         for (Item item : items) {
             totalVolume += item.calculateVolume(); // Add each item's volume to the total
         }
+        System.out.println("Total volume: " + totalVolume); // Debug statement
         return totalVolume;
     }
 
@@ -23,6 +24,8 @@ public class Calculation {
         for (Item item : items) {
             totalWeight += item.getWeight(); // Add each item's weight to the total
         }
+        System.out.println("Total weight: " + totalWeight); // Debug statement
+        System.out.println("------------------------------");
         return totalWeight;
     }
 
@@ -30,7 +33,7 @@ public class Calculation {
     public void bestShipping(List<Item> items) {
         double totalVolume = totalVolume(items);
         double totalWeight = totalWeight(items);
-        
+
         // Define small and big container types
         Container smallContainer = new SmallContainer();
         Container bigContainer = new BigContainer();
@@ -58,6 +61,7 @@ public class Calculation {
         
         if (combinedBigContainers > 0 && combinedSmallContainers > 0) {
             System.out.println(combinedBigContainers + " Big Containers and " + combinedSmallContainers + " Small Containers: " + combinedCost + " Euros");
+            System.out.println("------------------------------");
         }
 
         // Determine and print the cheapest option 
@@ -67,10 +71,10 @@ public class Calculation {
         } else if (minCost == bigContainerCost) {
             System.out.println("Best Option: " + bigContainersNeeded + " Big Containers");
         } else {
-        	// If one of the two container types is 0, there is no need to print
-        	if (combinedBigContainers > 0 && combinedSmallContainers > 0) {
-        	    System.out.println("Best Option: " + combinedBigContainers + " Big Containers and " + combinedSmallContainers + " Small Containers");
-        	}
+            // If one of the two container types is 0, there is no need to print
+            if (combinedBigContainers > 0 && combinedSmallContainers > 0) {
+                System.out.println("Best Option: " + combinedBigContainers + " Big Containers and " + combinedSmallContainers + " Small Containers");
+            }
         }
     }
 
@@ -78,7 +82,7 @@ public class Calculation {
     public double shippingPrice(List<Item> items, String containerType) {
         double totalWeight = totalWeight(items);
         double totalCost = 0;
-
+        
         // Calculate cost based on container type specification
         // TODO: There may be a better solution
         if (containerType.contains("Small")) {
