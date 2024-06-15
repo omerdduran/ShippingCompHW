@@ -7,21 +7,24 @@ import java.util.List;
 import java.util.Scanner;
 
 
-//Ömer Duran - 45096997
+// Ömer Duran - 45096997
+
 //I use JRE 17.0.11 
 //Git repo: https://codeberg.org/omerdduran/ShippingCompHW
+//Here, you can see all the commits I made over time
 //
-//Description: This Java program calculates the optimal shipping method and cost for a given list of items. 
-//         It includes functions to compute the total volume and weight of the items, determine the best 
-//         shipping option considering both small and big containers, and print order details including 
-//         the shipping method and total cost.
+//Description: This Java program finds the best way and cost of shipping for a
+//			given list of products. It retrieves the products to be shipped with the "Scanner"
+//			from the user. Then it adds the products to the list. Calculates the volume and
+//			weight of all products. Accordingly, it calculates the possibilities of how we can send them.
+//			It tells us the cheapest of these possibilities.
 //
 //Date: June 11, 2024
 
 public class Main {
 
-    public void run() {
-    	// try and catch to avoid incorrect input
+    public static void main(String[] args) {
+        // try and catch to avoid incorrect input
         try (Scanner scanner = new Scanner(System.in)) {
             List<Item> items = new ArrayList<>();
             Calculation calculation = new Calculation();
@@ -50,16 +53,11 @@ public class Main {
             for (int i = 0; i < numLcdScreens; i++) {
                 items.add(new LcdScreen());
             }
-        
+
             calculation.bestShipping(items);
             scanner.close();
         } catch (Exception e) {
             System.out.println("Please enter valid numbers.");
         }
-    }
-    // Call the run method of the Main instance
-    public static void main(String[] args) {
-        Main mainInstance = new Main();
-        mainInstance.run();
     }
 }
